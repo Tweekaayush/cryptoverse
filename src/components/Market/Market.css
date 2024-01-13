@@ -1,0 +1,143 @@
+.market-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.coins-table-container{
+    width: 100%;
+    overflow-x: auto;
+}
+
+.coins-table-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: var(--bg-color-3);
+}
+
+.coins-table-container::-webkit-scrollbar
+{
+    margin-top: 10px;
+	width: 12px;
+	background-color: var(--bg-color-2);
+    border-radius: 15px;
+}
+
+.coins-table-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--table-head-color);
+}
+
+.coins-table{
+    min-width: 660px;
+    display: flex;
+    flex-direction: column;
+}
+
+.coins-table-head{
+    width: 100%;
+    display: flex;
+    background-color: var(--table-head-color);
+    border-radius: 5px 5px 0 0;
+}
+
+.coins-table-head > p{
+    flex: 1;
+    font-size: 18px;
+    padding: 16px;
+    text-align: right;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.coins-table-head > p:first-child{
+    flex: 1.5;
+    text-align: left;
+}
+
+.coins-table-head > p:nth-child(2){
+    flex: 0.8;
+}
+
+.coins-table-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.coins-table-item{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--text-color-3);
+    cursor: pointer;
+}
+
+.coins-table-item:hover{
+    background-color: var(--bg-color-2);
+}
+
+.coins-table-item:last-child{
+    margin-bottom: 10px;
+}
+
+.coins-table-item > div{
+    flex: 1.5;
+    display: flex;
+    padding: 16px;
+    gap: 10px;
+}
+
+.coins-table-item > p{
+    flex: 1;
+    padding: 16px;
+    color: var(--text-color-2);
+    text-align: right;
+    font-size: 18px;
+}
+
+.table-item-price{
+    flex: 0.8 !important;
+}
+
+.table-item-head img{
+    height: 50px;
+}
+
+.table-item-head div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table-item-head div span:first-child{
+    font-size: 22px;
+    color: var(--text-color-1);
+    text-transform: uppercase;
+}
+
+.table-item-head div span:last-child{
+    font-size: 14px;
+    color: var(--text-color-3);
+}
+
+.market-container .MuiPaginationItem-root{
+    color: gold;
+}
+
+@media screen and (max-width:1200px) {
+    
+}
+
+@media screen and (max-width:1024px) {
+    .coins-table-head > p{
+        font-size: 16px;
+    }
+
+    .coins-table-item > p{
+        font-size: 16px;
+    }
+}

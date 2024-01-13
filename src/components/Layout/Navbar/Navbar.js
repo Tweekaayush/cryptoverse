@@ -8,7 +8,24 @@ const Navbar = () => {
 
   const {currency, setCurrency} = useContext(CurrencyContext)
   const [toggle, setToggle] = useState(false)
+  const [scroll, setScroll] = useState(false)
+  let resizeTimer
   const currencyList = useRef(null)
+
+
+  window.addEventListener('scroll',()=>{
+    window.scrollY > 0 ? setScroll(true) : setScroll(false);
+  })
+
+  window.addEventListener("resize", ()=>{
+    if(document.body.clientWidth>1074)
+        setToggle(false)
+           document.body.classList.add("resize-animation-stopper");
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          document.body.classList.remove("resize-animation-stopper");
+        }, 400);
+  });
 
   const highlightedStyle = {
     backgroundColor: '#e2e2e2'
@@ -28,7 +45,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="navbar">
+    <nav className={scroll?"navbar scrolled":"navbar"}>
       <div className="nav-container">
         <Link to="/" className="nav-brand">Cryptoverse</Link>
         <ul className={toggle?'nav-links nav-links-active':'nav-links'}>
