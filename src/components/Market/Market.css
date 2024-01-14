@@ -5,6 +5,17 @@
     flex-direction: column;
 }
 
+.market-header{
+    margin-bottom: 32px;
+}
+
+.market-header h1{
+    font-size: 32px;
+    color: var(--text-color-1);
+    font-weight: 900;
+    border-bottom: 2px solid var(--button-color-1);
+}
+
 .coins-table-container{
     width: 100%;
     overflow-x: auto;
@@ -41,7 +52,7 @@
 .coins-table-head{
     width: 100%;
     display: flex;
-    background-color: var(--table-head-color);
+    background-color: var(--button-color-1);
     border-radius: 5px 5px 0 0;
 }
 
@@ -51,7 +62,8 @@
     padding: 16px;
     text-align: right;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 500;
+    color: var(--text-color-1);
 }
 
 .coins-table-head > p:first-child{
@@ -97,6 +109,11 @@
     color: var(--text-color-2);
     text-align: right;
     font-size: 18px;
+    font-weight: 500;
+}
+
+.coins-table-item .table-item-24hchange{
+    color: red;
 }
 
 .table-item-price{
@@ -125,7 +142,7 @@
 }
 
 .market-container .MuiPaginationItem-root{
-    color: gold;
+    color: var(--table-head-color);
 }
 
 @media screen and (max-width:1200px) {
