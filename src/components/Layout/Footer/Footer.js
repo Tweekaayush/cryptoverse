@@ -11,6 +11,7 @@ const Footer = () => {
             <p className="footer-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum sequi eius ipsa dolor quidem.
             </p>
+            
           </div>
           <div className="footer-newsletter">
             <h2 className="footer-headings">get updated</h2>

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import './TrendingCarousel.css'
 import { trendingCoinList } from '../../data'
 import AliceCarousel from "react-alice-carousel";
@@ -9,18 +9,21 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 const TrendingCarousel = () => {
 
-  const {symbol} = useContext(CurrencyContext)
+  const {symbol, currency} = useContext(CurrencyContext)
   const [trendingCoins, setTrendingCoins] = useState(trendingCoinList)
   const responsive = {
     0: {
       items: 2,
     },
 
+    480:{
+      items: 3
+    },
     768: {
-        items:3,
+        items:4,
     },
     1024:{
-        items:4,
+        items:5,
     }
   };
 
@@ -57,6 +60,16 @@ const TrendingCarousel = () => {
       </Link>
     );
     });
+
+    const fetchTrendingCoins = async() =>{
+      await fetch(TrendingCoins(currency))
+            .then((res)=>res.json())
+            .then((data) => setTrendingCoins(data))
+    }
+
+    // useEffect(()=>{
+    //   fetchTrendingCoins()  
+    // }, [currency])
     
   return (
     <section id="trending">

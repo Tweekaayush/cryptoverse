@@ -13,7 +13,6 @@
     font-size: 32px;
     color: var(--text-color-1);
     font-weight: 900;
-    border-bottom: 2px solid var(--button-color-1);
 }
 
 .coins-table-container{

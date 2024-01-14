@@ -1,7 +1,13 @@
 footer{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     height: 350px;
     width: 100%;
+}
+
+.footer-container{
+    width: 100%;
+    display: grid;
 }

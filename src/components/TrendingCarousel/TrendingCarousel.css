@@ -1,3 +1,7 @@
+#trending{
+    padding-top: 0;
+}
+
 .trending-carousel-container{
     display: flex;
     flex-direction: column;
@@ -15,8 +19,8 @@
 }
 
 .carousel-item img{
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 16px;
 }
 

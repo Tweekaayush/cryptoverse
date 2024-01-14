@@ -16,7 +16,7 @@ const App = () => {
           <Route exact path='/' element={<Home/>} />
           <Route exact path='/coins/:id' element={<CoinPage/>} />
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </Router>
     </CurrencyContextProvider>
   )
