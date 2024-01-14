@@ -3,11 +3,132 @@ footer{
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 350px;
+    height: fit-content;
     width: 100%;
+    background-color: var(--nav-color-1);
 }
 
 .footer-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.upper-footer{
     width: 100%;
     display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    padding-block: 32px;
+}
+
+.upper-footer > div{
+    padding: 10px;
+}
+
+.footer-brand{
+    color: var(--text-color-1);
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.footer-heading{
+    color: var(--text-color-1);
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-text{
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    color: var(--text-color-2);
+    margin-bottom: 20px;
+}
+
+.footer-links{
+    list-style: none;
+    display: flex;
+}
+
+.footer-links li{
+    margin-right: 15px ;
+}
+
+.footer-links li svg{
+    font-size: 16px;
+    color: var(--text-color-1);
+}
+
+
+.footer-service-links, .footer-support-links{
+    list-style: none;
+}
+
+.footer-service-links li, .footer-support-links li{
+    margin-bottom: 10px;
+}
+
+.footer-service-links li a, .footer-support-links li a{
+    font-size: 16px;
+    color: var(--text-color-2);
+    text-decoration: none;
+}
+
+.newsletter-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.newsletter-form input[type='email']{
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--button-color-1);
+}
+
+.newsletter-form input[type='email']:focus{
+    outline: none;
+}
+
+.newsletter-form input[type='submit']{
+    font-size: 14px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: none;
+    color: var(--text-color-1);
+    background-color: var(--button-color-1);
+}
+
+.lower-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.lower-footer p{
+    font-size: 14px;
+    color: var(--text-color-3);
+    border-top: 1px solid var(--text-color-3);
+    width: 100%;
+    padding-block: 32px;
+}
+
+@media screen and (max-width:768px) {
+    .upper-footer{
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-about, .footer-newsletter{
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .upper-footer{
+        grid-template-columns: 1fr;
+    }
+    .footer-services{
+        margin-bottom: 16px;
+    }
 }

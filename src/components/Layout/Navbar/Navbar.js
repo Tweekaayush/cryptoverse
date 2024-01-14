@@ -50,13 +50,13 @@ const Navbar = () => {
         <Link to="/" className="nav-brand">Cryptoverse</Link>
         <ul className={toggle?'nav-links nav-links-active':'nav-links'}>
           <li className='nav-item'>
-            <Link to='/'>Home</Link>
+            <Link to='#home'>Home</Link>
           </li>
           <li className='nav-item'>
-            <Link to='market'>Market</Link>
+            <Link to='#market'>Market</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/'>About</Link>
+            <Link to='/#services'>Services</Link>
           </li>
           <li className='nav-item'>
             <Link to='/'>Contact</Link>
