@@ -16,11 +16,16 @@
     color: var(--text-color-1);
 }
 
+.service-header h1 span{
+    color: var(--text-color-4);
+}
+
 .service-content{
     margin-top: 70px;
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 .service-card{
@@ -30,6 +35,10 @@
     padding: 12px;
     text-align: center;
     transition: all 0.3s;
+    border-radius: 10px;
+    border: 1px solid var(--button-color-1);
+    background-color: var(--overlay-color-1);
+    cursor: pointer;
 }
 
 .service-card-header{
@@ -57,12 +66,12 @@
     text-align: center;
     line-height: 25px;
     letter-spacing: 1px;
+    word-break:normal;
+    word-wrap: break-word;
 }
 
 .service-card:hover{
-    border: 1px solid var(--button-color-1);
-    background-color: var(--overlay-color-1);
-    border-radius: 10px;
+    transform: translateY(-10px);
 }
 
 @media screen and (max-width:1024px) {

@@ -14,6 +14,7 @@
   --text-color-1: #ffffff;
   --text-color-2: #e2e2e2;
   --text-color-3: #c7c7c7;
+  --text-color-4: #eebc1d;
   --button-color-1: #1565c0;
   --table-head-color: #eebc1d;
   --white-color: #ffffff;
@@ -26,6 +27,8 @@ html{
 
 body{
   background-color: var(--bg-color-1);
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+
 }
 
 .resize-animation-stopper * {

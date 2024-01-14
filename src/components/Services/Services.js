@@ -11,7 +11,7 @@ const Services = () => {
       <div className="container">
         <div className="service-container">
           <div className="service-header">
-            <h1>Our Services</h1>
+            <h1>Our <span>Services</span></h1>
             <p className='body-text'>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic vel vitae, officiis modi deserunt dolorem minus iure? Autem, vel voluptatem!
             </p>

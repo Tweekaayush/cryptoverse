@@ -1,0 +1,8 @@
+#coin-details{
+    min-height: 100vh;
+}
+
+.coin-page-container{
+    width: 100%;
+    display: flex;
+}

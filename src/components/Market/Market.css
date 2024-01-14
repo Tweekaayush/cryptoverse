@@ -15,6 +15,10 @@
     font-weight: 900;
 }
 
+.market-header h1 span{
+    color: var(--text-color-4);
+}
+
 .coins-table-container{
     width: 100%;
     overflow-x: auto;
@@ -141,7 +145,7 @@
 }
 
 .market-container .MuiPaginationItem-root{
-    color: var(--table-head-color);
+    color: var(--white-color);
 }
 
 @media screen and (max-width:1200px) {

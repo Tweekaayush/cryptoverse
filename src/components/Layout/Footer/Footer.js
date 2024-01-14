@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Footer.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFacebookF, faInstagram, faLinkedin, faXTwitter} from '@fortawesome/free-brands-svg-icons'
@@ -6,8 +6,14 @@ import {Link} from 'react-router-dom'
 
 const Footer = () => {
 
-  const [year, setYear] = useState(new Date().setFullYear())
+  const [year , setYear] = useState();
 
+    const getYear = () =>  setYear(new Date().getFullYear())
+
+
+    useEffect(() => {
+        getYear();
+    }, [])
 
   return (
     <footer>

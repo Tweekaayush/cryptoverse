@@ -41,7 +41,7 @@ const Market = () => {
         <div className="container">
             <div className="market-container">
                 <div className="market-header">
-                    <h1>Market</h1>
+                    <h1>Mar<span>ket</span></h1>
                 </div>
                 <div className="coins-table-container">
                     <div className="coins-table">
