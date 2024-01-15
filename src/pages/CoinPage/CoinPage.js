@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom'
 import { coinList } from '../../data'
 import { SingleCoin } from '../../config/api'
 import Loader from '../..//components/Loader/Loader'
+import axios from 'axios'
 
 const CoinPage = () => {
 
@@ -13,9 +14,9 @@ const CoinPage = () => {
   const [coin, setCoin] = useState()
 
   const getCoinDetails = async() =>{
-    await fetch(SingleCoin(id))
-          .then((res) => res.json())
-          .then((data) => setCoin(data))
+
+    const { data } = await axios.get(SingleCoin(id))
+    setCoin(data)
   }
 
   useEffect(()=>{

@@ -5,6 +5,8 @@ import { CoinList } from '../../config/api'
 import {useNavigate} from 'react-router-dom'
 import {coinList} from '../../data'
 import Pagination from '@mui/material/Pagination'
+import { LinearProgress } from '@mui/material'
+import axios from 'axios'
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -12,9 +14,10 @@ function numberWithCommas(x) {
 
 const Market = () => {
 
-  const [coins, setCoins] = useState(coinList || [])
+  const [coins, setCoins] = useState([])
   const [page, setPage] = useState(1)
   const {currency, symbol} = useContext(CurrencyContext)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const priceStyle = {
@@ -22,19 +25,19 @@ const Market = () => {
   }
 
   const fetchCoins = async ()=>{
-    await fetch(CoinList(currency))
-    .then((res)=>res.json())
-    .then((data) => setCoins(data))
+    setLoading(true)
+    const { data } = await axios.get(CoinList(currency))
+    setCoins(data)
+    setLoading(false)
   }
 
   const handleChange = (e, p) =>{
     setPage(p)
   }
 
-//   useEffect(()=>{
-//     fetchCoins()
-//     console.log(coins)
-//   },[currency])
+  useEffect(()=>{
+    fetchCoins();
+  },[currency])
 
   return (
     <section id="market">
@@ -54,33 +57,36 @@ const Market = () => {
                         </div>
                         <div className="coins-table-body">
                             {
-                            coins.slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin)=>{
-                                let profit = coin.market_cap_change_percentage_24h
-                                return (
-                                    <div ley={coin.id} className='coins-table-item' onClick={()=>navigate(`/coins/${coin.id}`)}>
-                                        <div className="table-item-head">
-                                            <img src={coin.image} alt="" />
-                                            <div>
-                                                <span className="table-item-symbol">{coin.symbol}</span>
-                                                <span className="table-item-name">{coin.name}</span>
+                                loading ? (
+                                    <LinearProgress />
+                                ):(
+                                    coins.slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin)=>{
+                                    let profit = coin.market_cap_change_percentage_24h
+                                    return (
+                                        <div key={coin.id} className='coins-table-item' onClick={()=>navigate(`/coins/${coin.id}`)}>
+                                            <div className="table-item-head">
+                                                <img src={coin.image} alt="" />
+                                                <div>
+                                                    <span className="table-item-symbol">{coin.symbol}</span>
+                                                    <span className="table-item-name">{coin.name}</span>
+                                                </div>
                                             </div>
+                                            <p className="table-item-price">
+                                                {coin.price}
+                                                {symbol + " "}{numberWithCommas(coin.current_price)}
+                                            </p>
+                                            <p  className="table-item-24hchange"
+                                                style={profit > 0? priceStyle :{}}
+                                            >
+                                                {profit > 0 && "+"}
+                                                {profit.toFixed(2)}%
+                                            </p>
+                                            <p className="table-item-market-cap">
+                                                {symbol + " "}{numberWithCommas(coin.market_cap.toString().slice(0, -6))}M
+                                            </p>
                                         </div>
-                                        <p className="table-item-price">
-                                            {coin.price}
-                                            {symbol + " "}{numberWithCommas(coin.current_price)}
-                                        </p>
-                                        <p  className="table-item-24hchange"
-                                            style={profit > 0? priceStyle :{}}
-                                        >
-                                            {profit > 0 && "+"}
-                                            {profit.toFixed(2)}%
-                                        </p>
-                                        <p className="table-item-market-cap">
-                                            {symbol + " "}{numberWithCommas(coin.market_cap.toString().slice(0, -6))}M
-                                        </p>
-                                    </div>
-                                )
-                            }) 
+                                    )
+                            })) 
                         }
                         </div>
                     </div>

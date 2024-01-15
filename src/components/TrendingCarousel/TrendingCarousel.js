@@ -1,16 +1,26 @@
 import React, {useContext, useEffect, useState} from 'react'
 import './TrendingCarousel.css'
-import { trendingCoinList } from '../../data'
 import AliceCarousel from "react-alice-carousel";
 import { TrendingCoins } from '../../config/api';
 import { Link } from 'react-router-dom';
 import { CurrencyContext } from '../../context/CurrencyContext';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import axios from 'axios'
 
 const TrendingCarousel = () => {
 
   const {symbol, currency} = useContext(CurrencyContext)
-  const [trendingCoins, setTrendingCoins] = useState(trendingCoinList)
+  const [trendingCoins, setTrendingCoins] = useState([])
+
+  const fetchTrendingCoins = async() =>{
+    const { data } = await axios.get(TrendingCoins(currency))
+    setTrendingCoins(data)
+  }
+
+  useEffect(()=>{
+    fetchTrendingCoins()  
+  }, [currency])
+
   const responsive = {
     0: {
       items: 2,
@@ -60,35 +70,32 @@ const TrendingCarousel = () => {
       </Link>
     );
     });
-
-    const fetchTrendingCoins = async() =>{
-      await fetch(TrendingCoins(currency))
-            .then((res)=>res.json())
-            .then((data) => setTrendingCoins(data))
-    }
-
-    // useEffect(()=>{
-    //   fetchTrendingCoins()  
-    // }, [currency])
     
   return (
-    <section id="trending">
-        <div className="container">
-            <div className="trending-carousel-container">
-                <AliceCarousel
-                    mouseTracking
-                    infinite
-                    autoPlayInterval={2000}
-                    animationDuration={1500}
-                    disableDotsControls
-                    disableButtonsControls
-                    responsive={responsive}
-                    items={items}
-                    autoPlay
-                />
-            </div>
-        </div>
-    </section>
+
+    <>
+      {
+        trendingCoins && (    
+          <section id="trending">
+              <div className="container">
+                  <div className="trending-carousel-container">
+                      <AliceCarousel
+                          mouseTracking
+                          infinite
+                          autoPlayInterval={2000}
+                          animationDuration={1500}
+                          disableDotsControls
+                          disableButtonsControls
+                          responsive={responsive}
+                          items={items}
+                          autoPlay
+                          />
+                  </div>
+              </div>
+          </section>
+        )
+      }
+    </>
   )
 }
 

@@ -5,6 +5,8 @@ import { HistoricalChart } from '../../config/api'
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { CircularProgress } from '@mui/material';
+import axios from 'axios';
+import { chartDays } from '../../config/data';
 
 ChartJS.register(...registerables);
 
@@ -15,18 +17,24 @@ const CoinChart = ({id}) => {
   const [flag, setFlag] = useState(false)
   const {currency} = useContext(CurrencyContext)
 
+  const buttonStyle = {
+    backgroundColor: '#1565c0',
+  }
+
   const fetchChartData = async() =>{
-    await fetch(HistoricalChart(id, days, currency))
-          .then(res=>res.json())
-          .then(data=>{
-            setFlag(true)
-            setChartData(data.prices)
-          })
+    const {data} = await axios.get(HistoricalChart(id, days, currency))
+    setChartData(data.prices)
+    setFlag(true)
   }
 
   useEffect(()=>{
     fetchChartData()
   },[days])
+
+
+  const changeDay = (val) =>{
+    setDays(val)
+  }
 
   const options = {
     scales: {
@@ -52,6 +60,7 @@ const CoinChart = ({id}) => {
     <div className="coin-chart-container">
       {
         chartData && flag ?(
+          <>
             <Line
               data={{
                 labels: chartData.map((coin) => {
@@ -67,12 +76,20 @@ const CoinChart = ({id}) => {
                   {
                     data: chartData.map((coin) => coin[1]),
                     label: `Price ( Past ${days} Days ) in ${currency}`,
-                    borderColor: "#EEBC1D",
+                    borderColor: "#1565c0",
                   },
                 ],
               }}
               options={options}
             />
+            <div className="chart-days-container">
+                {
+                  chartDays.map((c_day)=>{
+                    return <button onClick={()=>changeDay(c_day.value)} style={days === c_day.value?buttonStyle:{}}>{c_day.label}</button>
+                  })
+                }
+            </div>
+          </>
         ):(
           <CircularProgress
             style={{ color: "#1565c0" }}
