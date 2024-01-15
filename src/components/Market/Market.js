@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 import {coinList} from '../../data'
 import Pagination from '@mui/material/Pagination'
 
-export function numberWithCommas(x) {
+function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 

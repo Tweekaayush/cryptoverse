@@ -1,19 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './CoinDetails.css'
 import { CurrencyContext } from '../../context/CurrencyContext'
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const CoinDetails = (props) => {
  
-  const {symbol} = useContext(CurrencyContext)
+  const {symbol, currency} = useContext(CurrencyContext)
+  const [description, setDescription] = useState('')
+
+  useEffect(()=>{
+    setDescription(props?.description.en.split(". ")[0] + '.')
+  }, [props])
 
   return (
     <div className="coin-detail-container">
-        <img className="coin-detail-img" src={props.image} alt="" />
+        <img className="coin-detail-img" src={props?.image.large} alt="" />
         <h1 className="coin-detail-heading">
-            {props.name}
+            {props?.name}
         </h1>
-        <p className='body-text'>
-        Bitcoin is the first successful internet money based on peer-to-peer technology; whereby no central bank or authority is involved in the transaction and production of the Bitcoin currency.
+        <p className='coin-detail-text'
+            dangerouslySetInnerHTML={{__html: description}}
+        >
+
         </p>
         <p className="coin-detail">
             <span>
@@ -21,7 +32,7 @@ const CoinDetails = (props) => {
             </span>
             &nbsp; &nbsp;
             <span>
-                {props.market_cap_rank}
+                #{props?.market_cap_rank}
             </span>
         </p>
         <p className="coin-detail">
@@ -30,7 +41,7 @@ const CoinDetails = (props) => {
             </span>
             &nbsp; &nbsp;
             <span>
-              {symbol + " "}{props.current_price}
+              {symbol + " "}{numberWithCommas(props?.market_data.current_price[currency.toLowerCase()])}
             </span>
         </p>
         <p className="coin-detail">
@@ -39,7 +50,7 @@ const CoinDetails = (props) => {
             </span>
             &nbsp; &nbsp;
             <span>
-                {symbol + " "}{props.market_cap}
+                {symbol + " "}{numberWithCommas(props?.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6))}M
             </span>
         </p>
     </div>

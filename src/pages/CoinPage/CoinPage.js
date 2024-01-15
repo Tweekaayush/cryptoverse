@@ -5,29 +5,38 @@ import CoinChart from '../../components/CoinChart/CoinChart'
 import {useParams} from 'react-router-dom'
 import { coinList } from '../../data'
 import { SingleCoin } from '../../config/api'
+import Loader from '../..//components/Loader/Loader'
 
 const CoinPage = () => {
 
-  const {id} = useParams()
-  const [coin, setCoin] = useState(coinList[0])
+  const { id } = useParams()
+  const [coin, setCoin] = useState()
 
   const getCoinDetails = async() =>{
     await fetch(SingleCoin(id))
           .then((res) => res.json())
-          .then((data) => setCoin(coin))
+          .then((data) => setCoin(data))
   }
 
-  // useEffect(()=>{
-  //   getCoinDetails();
-  // }, [])
+  useEffect(()=>{
+    getCoinDetails();
+  }, [])
 
   return (
-      <section id="coin-details">
-        <div className="coin-page-container">
-          <CoinDetails {...coin}/>
-          <CoinChart/>
-        </div>
-      </section>
+    <>
+    {
+      coin?(
+        <section id="coin-details">
+          <div className="coin-page-container">
+            <CoinDetails {...coin}/>
+            <CoinChart id={id}/>
+          </div>
+        </section>
+      ):(
+        <Loader/>
+      )
+    }
+    </>
   )
 }
 

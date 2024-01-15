@@ -1,0 +1,8 @@
+.coin-chart-container{
+    width: 75%;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

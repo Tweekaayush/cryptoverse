@@ -1,5 +1,9 @@
 #coin-details{
     min-height: 100vh;
+    background-color: var(--bg-color);
+    /* background-image: url('../../assets/images/Coinpage/coinpg.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .coin-page-container{

@@ -28,6 +28,7 @@ html{
 body{
   background-color: var(--bg-color-1);
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background-size: 150%;
 
 }
 
