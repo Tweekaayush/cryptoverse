@@ -45,6 +45,9 @@
     flex: 1;
     position: relative;
     z-index: 1;
+    order: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .header-img-bg{
@@ -66,5 +69,22 @@
 @media screen and (max-width:1200px) {
     .hero-heading{
         font-size: 50px;
+    }
+}
+
+@media screen and (max-width:810px) {
+    .hero-container{
+        flex-direction: column;
+    }
+
+    .hero-header-content{
+        order: 2;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-header-img img{
+           width: 400px;
+
     }
 }
