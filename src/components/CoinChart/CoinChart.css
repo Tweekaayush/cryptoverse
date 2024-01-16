@@ -31,6 +31,10 @@
     padding: 16px 32px;
 }
 
+.chart-days-container button:hover{
+background-color: var(--button-color-1);
+}
+
 @media screen and (max-width:1300px) {
     .coin-chart-container{
         width: 100%;

@@ -1,7 +1,5 @@
 #trending{
-    /* padding-top: 0; */
-    /* background-color: var(--overlay-color-1); */
-    backdrop-filter: sepia(30%);
+    padding-top: 0;
 }
 
 .trending-carousel-container{

@@ -9,18 +9,17 @@
 
 
 :root{
-  --nav-color-1: #00021f;
-  --bg-color-1: #000124;
-  --bg-color-2: #000346;
+  --nav-color-1: 	rgb(11, 22, 53);
+  --bg-color-1: #081740;
+  --bg-color-2: #0d1a59;
   --text-color-1: #ffffff;
   --text-color-2: #e2e2e2;
   --text-color-3: #c7c7c7;
-  --text-color-4: #eebc1d;
-  --button-color-1: #1565c0;
-  --table-head-color: #eebc1d;
+  --text-color-4: #00d9ff;
+  --button-color-1: #3471f5;
   --white-color: #ffffff;
-  --overlay-color-1: #031330;
-  --overlay-color-2: #053557;
+  --overlay-color-1: 	#122656;
+  --overlay-color-2: #2c4170;
 }
 
 html{
@@ -29,7 +28,7 @@ html{
 
 body{
   background-color: var(--bg-color-1);
-  /* background-image: url("https://www.transparenttextures.com/patterns/stardust.png"); */
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
   background-size: 50%;
 
 }

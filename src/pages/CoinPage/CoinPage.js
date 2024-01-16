@@ -3,7 +3,6 @@ import './CoinPage.css'
 import CoinDetails from '../../components/CoinDetails/CoinDetails'
 import CoinChart from '../../components/CoinChart/CoinChart'
 import {useParams} from 'react-router-dom'
-import { coinList } from '../../data'
 import { SingleCoin } from '../../config/api'
 import Loader from '../..//components/Loader/Loader'
 import axios from 'axios'
@@ -21,6 +20,7 @@ const CoinPage = () => {
 
   useEffect(()=>{
     getCoinDetails();
+    window.scrollTo(0, 0)
   }, [])
 
   return (

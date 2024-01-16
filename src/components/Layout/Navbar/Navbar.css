@@ -67,6 +67,7 @@
     text-transform: uppercase;
     border: 1px solid var(--white-color);
     padding-inline: 5px;
+    cursor: pointer;
 }
 
 .nav-currency-display svg{
@@ -81,6 +82,7 @@
     max-height: 0;
     transition: max-height 0.3s;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .currency-list-toggle{
@@ -154,5 +156,4 @@
 
 .scrolled{
     background-color: var(--nav-color-1);
-    box-shadow: 0 0 5px var(--overlay-color-2);
 }

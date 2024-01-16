@@ -18,14 +18,14 @@
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	background-color: var(--bg-color-3);
+	background-color: var(--overlay-color-1);
 }
 
 .coins-table-container::-webkit-scrollbar
 {
     margin-top: 10px;
 	width: 12px;
-	background-color: var(--bg-color-2);
+	background-color: var(--overlay-color-1);
     border-radius: 15px;
 }
 
@@ -33,7 +33,7 @@
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: var(--table-head-color);
+	background-color: var(--text-color-4);
 }
 
 .coins-table{
@@ -82,7 +82,7 @@
 }
 
 .coins-table-item:hover{
-    background-color: var(--bg-color-2);
+    background-color: var(--overlay-color-1);
 }
 
 .coins-table-item:last-child{
@@ -136,10 +136,6 @@
 
 .market-container .MuiPaginationItem-root{
     color: var(--white-color);
-}
-
-@media screen and (max-width:1200px) {
-    
 }
 
 @media screen and (max-width:1024px) {

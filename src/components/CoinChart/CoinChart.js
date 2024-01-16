@@ -18,7 +18,7 @@ const CoinChart = ({id}) => {
   const {currency} = useContext(CurrencyContext)
 
   const buttonStyle = {
-    backgroundColor: '#1565c0',
+    backgroundColor: '#3471f5',
   }
 
   const fetchChartData = async() =>{

@@ -22,7 +22,9 @@ footer{
 }
 
 .upper-footer > div{
-    padding: 10px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-brand{
@@ -113,12 +115,15 @@ footer{
     color: var(--text-color-3);
     border-top: 1px solid var(--text-color-3);
     width: 100%;
-    padding-block: 32px;
+    padding: 32px 16px;
 }
 
 @media screen and (max-width:768px) {
     .upper-footer{
         grid-template-columns: 1fr 1fr;
+    }
+    .upper-footer div{
+        justify-content: flex-start;
     }
     .footer-about, .footer-newsletter{
         margin-bottom: 16px;
