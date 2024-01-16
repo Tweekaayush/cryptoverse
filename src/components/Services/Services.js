@@ -1,9 +1,5 @@
 import React from 'react'
 import './Services.css'
-import mining from '../../assets/images/Services/bitcoin.png'
-import wallet from '../../assets/images/Services/wallet.png'
-import trading from '../../assets/images/Services/exchange.png'
-import shield from '../../assets/images/Services/shield.png'
 
 const Services = () => {
   return (
@@ -11,7 +7,7 @@ const Services = () => {
       <div className="container">
         <div className="service-container">
           <div className="service-header">
-            <h1>Our <span>Services</span></h1>
+            <h1 className='section-heading'>Our <span>Services</span></h1>
             <p className='body-text'>
               Explore our range of cryptocurrency services and take advantage of the benefits of the digital currency revolution.
             </p>

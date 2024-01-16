@@ -3,7 +3,6 @@ import './Market.css'
 import {CurrencyContext} from '../../context/CurrencyContext'
 import { CoinList } from '../../config/api'
 import {useNavigate} from 'react-router-dom'
-import {coinList} from '../../data'
 import Pagination from '@mui/material/Pagination'
 import { LinearProgress } from '@mui/material'
 import axios from 'axios'
@@ -37,6 +36,8 @@ const Market = () => {
 
   useEffect(()=>{
     fetchCoins();
+    // eslint-disable-next-line
+    
   },[currency])
 
   return (
@@ -44,7 +45,7 @@ const Market = () => {
         <div className="container">
             <div className="market-container">
                 <div className="market-header">
-                    <h1>Mar<span>ket</span></h1>
+                    <h1 className='section-heading'>Mar<span>ket</span></h1>
                 </div>
                 <div className="coins-table-container">
                     <div className="coins-table">

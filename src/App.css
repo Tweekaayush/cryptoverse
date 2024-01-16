@@ -63,6 +63,12 @@ section{
   letter-spacing: 1px;
 }
 
+.section-heading{
+  font-size: 48px;
+  margin-bottom: 24px;
+  color: var(--text-color-1);
+}
+
 @media screen and (max-width: 1200px) {
   .container{
     width: 100%;

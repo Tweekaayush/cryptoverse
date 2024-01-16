@@ -10,12 +10,6 @@
     text-align: center;
 }
 
-.service-header h1{
-    font-size: 48px;
-    margin-bottom: 24px;
-    color: var(--text-color-1);
-}
-
 .service-header h1 span{
     color: var(--text-color-4);
 }

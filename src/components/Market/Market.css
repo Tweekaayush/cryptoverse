@@ -5,16 +5,6 @@
     flex-direction: column;
 }
 
-.market-header{
-    margin-bottom: 32px;
-}
-
-.market-header h1{
-    font-size: 32px;
-    color: var(--text-color-1);
-    font-weight: 900;
-}
-
 .market-header h1 span{
     color: var(--text-color-4);
 }
