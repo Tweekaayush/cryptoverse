@@ -10,10 +10,10 @@ const Hero = () => {
             <div className="hero-container">
                 <div className="hero-header-content">
                     <h1 className="hero-heading">
-                        Lorem ipsum dolor sit
+                        Join the <span>Crypto</span> Revolution
                     </h1>
                     <p className='body-text'>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, velit. Eius dolorem culpa excepturi nesciunt suscipit dolorum iste placeat laboriosam.
+                        The crypto trading revolution has transformed the way we invest, trade and store value. With its decentralized and transparent nature cyptocurrencies offer a more secure and accessible alternative to traditional financial systems.
                     </p>
                     <div className="hero-btns">
                         <Link to = '/'>Get Started</Link>

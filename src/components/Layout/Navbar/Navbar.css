@@ -154,4 +154,5 @@
 
 .scrolled{
     background-color: var(--nav-color-1);
+    box-shadow: 0 0 5px var(--overlay-color-2);
 }

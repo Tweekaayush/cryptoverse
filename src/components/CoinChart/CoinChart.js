@@ -84,8 +84,8 @@ const CoinChart = ({id}) => {
             />
             <div className="chart-days-container">
                 {
-                  chartDays.map((c_day)=>{
-                    return <button onClick={()=>changeDay(c_day.value)} style={days === c_day.value?buttonStyle:{}}>{c_day.label}</button>
+                  chartDays.map((c_day, i)=>{
+                    return <button key={i} onClick={()=>changeDay(c_day.value)} style={days === c_day.value?buttonStyle:{}}>{c_day.label}</button>
                   })
                 }
             </div>

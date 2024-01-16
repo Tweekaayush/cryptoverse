@@ -21,9 +21,13 @@
 .hero-heading{
     color: var(--text-color-1);
     font-size: 60px;
-    font-weight: 900;
+    font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 32px;
+}
+
+.hero-heading span{
+    color: var(--text-color-4);
 }
 
 .hero-btns{
@@ -33,11 +37,17 @@
 
 .hero-btns a{
     text-decoration: none;
-    padding: 16px 32px;
+    padding: 16px 48px;
     font-size: 24px;
     color: var(--text-color-1);
     background-color: var(--button-color-1);
-    border-radius: 5px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.hero-btns a:hover{ 
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--overlay-color-2);
 }
 
 
@@ -72,7 +82,7 @@
     }
 }
 
-@media screen and (max-width:810px) {
+@media screen and (max-width:1024px) {
     .hero-container{
         flex-direction: column;
     }

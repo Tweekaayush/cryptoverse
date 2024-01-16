@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
 
 *{
   margin: 0;
@@ -18,17 +19,18 @@
   --button-color-1: #1565c0;
   --table-head-color: #eebc1d;
   --white-color: #ffffff;
-  --overlay-color-1: #172a4b;
+  --overlay-color-1: #031330;
+  --overlay-color-2: #053557;
 }
 
 html{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 body{
   background-color: var(--bg-color-1);
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-  background-size: 150%;
+  /* background-image: url("https://www.transparenttextures.com/patterns/stardust.png"); */
+  background-size: 50%;
 
 }
 
