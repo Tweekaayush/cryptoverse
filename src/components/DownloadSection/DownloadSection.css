@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--overlay-color-1);
+    background-color: var(--overlay-color-3);
     border-radius: 20px;
     padding: 16px;
 }
@@ -22,28 +22,17 @@
 .download-apk-images{
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
-.download-apk-images img:first-child{
-    height: 100px;
-}
-
-.download-apk-images img:last-child{
-    height: 68px;
+.download-apk-images img{
+    width: 150px;
 }
 
 @media screen and (max-width:768px) {
 
     .download-container h1{
         font-size: 32px;
-    }
-
-    .download-apk-images img:first-child{
-        height: 80px;
-    }
-    
-    .download-apk-images img:last-child{
-        height: 54px;
     }
 }
 @media screen and (max-width:480px) {
@@ -54,4 +43,7 @@
     .download-apk-images{
         flex-direction: column;
     }
+
+
+
 }
