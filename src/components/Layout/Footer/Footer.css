@@ -97,12 +97,21 @@ footer{
 }
 
 .newsletter-form input[type='submit']{
+    position: relative;
     font-size: 14px;
     padding: 10px 20px;
     text-transform: uppercase;
     border: none;
     color: var(--text-color-1);
     background-color: var(--button-color-1);
+    border: 1px solid var(--button-color-1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.newsletter-form input[type='submit']:hover{
+    color: var(--button-color-1);
+    background-color: var(--white-color);
 }
 
 .lower-footer{

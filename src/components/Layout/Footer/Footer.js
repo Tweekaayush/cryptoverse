@@ -7,13 +7,19 @@ import {Link} from 'react-router-dom'
 const Footer = () => {
 
   const [year , setYear] = useState();
+  const [email, setEmail] = useState('')
 
-    const getYear = () =>  setYear(new Date().getFullYear())
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    setEmail('')
+  }
+
+  const getYear = () =>  setYear(new Date().getFullYear())
 
 
-    useEffect(() => {
-        getYear();
-    }, [])
+  useEffect(() => {
+      getYear();
+  }, [])
 
   return (
     <footer>
@@ -56,8 +62,8 @@ const Footer = () => {
                 <p className="footer-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, debitis?
                 </p>
-                <form className="newsletter-form">
-                  <input type="email" name="" id="" placeholder='Email'/>
+                <form className="newsletter-form" onSubmit={handleSubmit}>
+                  <input type="email" name="newsletterEmail" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='Email'/>
                   <input type="submit" value="subscribe" />
                 </form>
               </div>

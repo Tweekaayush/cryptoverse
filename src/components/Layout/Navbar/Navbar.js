@@ -59,7 +59,8 @@ const Navbar = () => {
   });
 
   const highlightedStyle = {
-    backgroundColor: '#e2e2e2'
+    backgroundColor: '#3471f5',
+    color: '#ffffff'
   }
 
   const handleCurrencyList = () =>{
@@ -95,20 +96,6 @@ const Navbar = () => {
     <nav className={scroll?"navbar scrolled":"navbar"}>
       <div className="nav-container">
         <Link to="/" className="nav-brand">Cryptoverse</Link>
-        <ul className={toggle?'nav-links nav-links-active':'nav-links'}>
-          <li className='nav-item' onClick={()=>setToggle(false)}>
-            <Link to='/'>Home</Link>
-          </li>
-          <li className='nav-item' onClick={()=>setToggle(false)}>
-            <Link to='#market'>Market</Link>
-          </li>
-          <li className='nav-item' onClick={()=>setToggle(false)}>
-            <Link to='/#services'>Services</Link>
-          </li>
-          <li className='nav-item' onClick={()=>setToggle(false)}>
-            <Link to='/'>Contact</Link>
-          </li>
-        </ul>
         <div className="nav-right">
           <div className="nav-currency-container">
             <p ref={ref} className="nav-currency-display" onClick={handleCurrencyList}>{currency} <KeyboardArrowDownIcon /></p>
@@ -116,11 +103,6 @@ const Navbar = () => {
               <li style={currency ==='INR'?highlightedStyle:{}} onClick={handleCurrency}>INR</li>
               <li style={currency ==='USD'?highlightedStyle:{}} onClick={handleCurrency}>USD</li>
             </ul>
-          </div>
-          <div className={toggle?'nav-toggler toggle':'nav-toggler'} onClick={handleNavToggle}>
-            <div className="line1"></div>
-            <div className="line2"></div>
-            <div className="line3"></div>
           </div>
         </div>
       </div>

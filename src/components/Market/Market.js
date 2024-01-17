@@ -17,6 +17,7 @@ const Market = () => {
   const [page, setPage] = useState(1)
   const {currency, symbol} = useContext(CurrencyContext)
   const [loading, setLoading] = useState(false)
+  const [paginationSize, setPaginatonSize] = useState('large')
   const navigate = useNavigate()
 
   const priceStyle = {
@@ -34,11 +35,24 @@ const Market = () => {
     setPage(p)
   }
 
+  const handleResize = () =>{
+    if(document.body.clientWidth>480)
+        setPaginatonSize('large')
+    else
+        setPaginatonSize('small')
+
+  }
+
   useEffect(()=>{
     fetchCoins();
-    // eslint-disable-next-line
-    
   },[currency])
+
+  useEffect(()=>{
+    window.addEventListener('resize', handleResize)
+    return () =>{
+        window.removeEventListener('resize', handleResize)
+    }
+  },[])
 
   return (
     <section id="market">
@@ -96,14 +110,14 @@ const Market = () => {
                     count={Math.ceil(coins.length/10)} 
                     color="primary"
                     style={{
-                        padding: 20,
+                        paddingTop: 20,
                         width: "100%",
                         display: "flex",
                         justifyContent: "center",
                     }} 
                     page={page}
                     onChange={handleChange} 
-                    size='large'
+                    size={paginationSize}
                 />
             </div>
         </div>

@@ -23,30 +23,12 @@
 .nav-brand{
     text-decoration: none;
     color: var(--text-color-1);
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
-    padding-block: 5px;
 }
 
 .nav-brand:focus{
     outline: none;
-}
-
-/* ---------------------------------- Nav Middle ---------------------------------- */
-
-.nav-links{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-}
-
-.nav-item a{
-    text-decoration: none;
-    color: var(--text-color-1);
-    font-size: 18px;
-    text-transform: capitalize;
-    padding-block: 5px;
 }
 
 /* ---------------------------------- Nav Right ---------------------------------- */
@@ -62,6 +44,7 @@
     width: 65px;
     color: var(--text-color-1);
     display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 16px;
     text-transform: uppercase;
@@ -93,66 +76,32 @@
     padding: 5px;
 }
 
-.nav-toggler{
-    flex-direction: column;
-    gap: 4px;
-    padding-block: 5px;
-    display: none;
-}
-
-.nav-toggler div{
-    background-color: var(--white-color);
-    width: 32px;
-    height: 4px;
-    transition: all 0.3s;
-    border-radius: 5px;
-}
-
-.toggle .line1{
-    transform: rotate(45deg) translate(3px,8px);
-
-}
-
-.toggle .line2{
-    opacity: 0;
-}
-
-.toggle .line3{
-    transform: rotate(-45deg) translate(4px, -8px);
-}
-
 @media screen and (max-width:768px) {
-    .nav-toggler{
-        display: flex;
-    }
-    .nav-links{
-        position: absolute;
-        top: 80px;
-        right: 0;
-        flex-direction: column;
-        text-align: center;
-        width: 480px;
-        height: 100vh;
-        background-color: var(--bg-color-2);
-        gap: 32px;
-        transform: translateX(100%);
-        transition: transform 0.3s;
-    }
-
-    .nav-item a{
-        font-size: 32px;
+    .nav-brand{
+        font-size: 24px;
     }
 }
 
 @media screen and (max-width:480px) {
-    .nav-links{
-        width: 100%;
+
+    .nav-brand{
+        font-size: 22px;
+    }
+
+    .nav-currency-display{
+        font-size: 14px;
+        width: 60px;
+    }
+
+    .nav-currency-list{
+        width: 60px;
+    }
+
+    .nav-currency-list li{
+        font-size: 14px;
     }
 }
 
-.nav-links-active{
-    transform: translateX(0);
-}
 
 .scrolled{
     background-color: var(--nav-color-1);

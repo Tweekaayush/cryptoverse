@@ -74,7 +74,6 @@
 
 
 .service-card-header svg{
-    /* color: var(--text-color-1); */
     width: 50px;
     height: 50px;
 }
@@ -98,14 +97,25 @@
 }
 
 @media screen and (max-width:1024px) {
+
     .service-content{
         gap: 10px;
     }
+
 }
 
 @media screen and (max-width: 768px) {
+
     .service-content{
         grid-template-columns: 1fr;
+    }
+
+    .service-card-content h2{
+        font-size: 20px;
+    }
+
+    .service-card-content p{
+        font-size: 15px;
     }
 }
 

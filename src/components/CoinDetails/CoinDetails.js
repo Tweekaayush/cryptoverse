@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './CoinDetails.css'
 import { CurrencyContext } from '../../context/CurrencyContext'
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft} from '@fortawesome/free-solid-svg-icons'
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -17,6 +20,9 @@ const CoinDetails = (props) => {
 
   return (
     <div className="coin-detail-container">
+        <Link className='back-button' to='/'>
+            <FontAwesomeIcon icon={faAngleLeft} /> Go Back
+        </Link>
         <img className="coin-detail-img" src={props?.image.large} alt="" />
         <h1 className="coin-detail-heading">
             {props?.name}

@@ -16,7 +16,7 @@ const Hero = () => {
                         The crypto trading revolution has transformed the way we invest, trade and store value. With its decentralized and transparent nature cyptocurrencies offer a more secure and accessible alternative to traditional financial systems.
                     </p>
                     <div className="hero-btns">
-                        <Link to = '/'>Get Started</Link>
+                        <a href = '#market'>Get Started</a>
                     </div>
                 </div>
                 <div className="hero-header-img">
