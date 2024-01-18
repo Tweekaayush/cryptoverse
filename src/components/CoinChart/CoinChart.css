@@ -2,6 +2,7 @@
     width: 75%;
     padding-left: 16px;
     display: flex;
+    height: inherit;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -35,10 +36,21 @@
 background-color: var(--button-color-1);
 }
 
+.coin-chart-container .skeleton-bar{
+    background-color: var(--overlay-color-1);
+    animation: pulse 2s infinite;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
 @media screen and (max-width:1300px) {
     .coin-chart-container{
         width: 100%;
         padding: 0;
+    }
+    .coin-chart-container .skeleton-bar{
+        height: 500px;
     }
 }
 
@@ -46,5 +58,8 @@ background-color: var(--button-color-1);
     .chart-days-container button{
         font-size: 16px;
         padding: 10px;
+    }
+    .coin-chart-container .skeleton-bar{
+        height: 300px;
     }
 }

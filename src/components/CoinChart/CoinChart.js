@@ -4,7 +4,6 @@ import { CurrencyContext } from '../../context/CurrencyContext'
 import { HistoricalChart } from '../../config/api'
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from 'chart.js';
-import { CircularProgress } from '@mui/material';
 import axios from 'axios';
 import { chartDays } from '../../config/data';
 
@@ -14,7 +13,7 @@ ChartJS.register(...registerables);
 const CoinChart = ({id}) => {
   const [chartData, setChartData] = useState()
   const [days, setDays] = useState(1)
-  const [flag, setFlag] = useState(false)
+  const [loading, setLoading] = useState(true)
   const {currency} = useContext(CurrencyContext)
 
   const buttonStyle = {
@@ -22,9 +21,13 @@ const CoinChart = ({id}) => {
   }
 
   const fetchChartData = async() =>{
-    const {data} = await axios.get(HistoricalChart(id, days, currency))
-    setChartData(data.prices)
-    setFlag(true)
+    setLoading(true)
+    await axios.get(HistoricalChart(id, days, currency))
+          .then((res) =>{
+            setChartData(res.data.prices) 
+            setLoading(false)
+          })
+          .catch((e) => console.log(e))
   }
 
   useEffect(()=>{
@@ -59,7 +62,9 @@ const CoinChart = ({id}) => {
   return (
     <div className="coin-chart-container">
       {
-        chartData && flag ?(
+        loading ?(
+          <div className="skeleton-bar"></div>
+        ):(
           <>
             <Line
               data={{
@@ -90,12 +95,6 @@ const CoinChart = ({id}) => {
                 }
             </div>
           </>
-        ):(
-          <CircularProgress
-            style={{ color: "#1565c0" }}
-            size={250}
-            thickness={1}
-          />
         )
       }
     </div>

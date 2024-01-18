@@ -4,7 +4,6 @@ import {CurrencyContext} from '../../context/CurrencyContext'
 import { CoinList } from '../../config/api'
 import {useNavigate} from 'react-router-dom'
 import Pagination from '@mui/material/Pagination'
-import { LinearProgress } from '@mui/material'
 import axios from 'axios'
 
 function numberWithCommas(x) {
@@ -16,7 +15,7 @@ const Market = () => {
   const [coins, setCoins] = useState([])
   const [page, setPage] = useState(1)
   const {currency, symbol} = useContext(CurrencyContext)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [paginationSize, setPaginatonSize] = useState('large')
   const navigate = useNavigate()
 
@@ -26,9 +25,12 @@ const Market = () => {
 
   const fetchCoins = async ()=>{
     setLoading(true)
-    const { data } = await axios.get(CoinList(currency))
-    setCoins(data)
-    setLoading(false)
+    await axios.get(CoinList(currency))
+          .then((res)=>{
+              setCoins(res.data)
+              setLoading(false)
+          })
+          .catch((e) => console.log(e))
   }
 
   const handleChange = (e, p) =>{
@@ -73,7 +75,9 @@ const Market = () => {
                         <div className="coins-table-body">
                             {
                                 loading ? (
-                                    <LinearProgress />
+                                    [0, 1, 2, 3, 4, 5, 6, 7, 8 ,9].map((item, i)=>{
+                                        return <div key={i} className="skeleton-bar"></div>
+                                    })
                                 ):(
                                     coins.slice((page - 1) * 10, (page - 1) * 10 + 10).map((coin)=>{
                                     let profit = coin.market_cap_change_percentage_24h
